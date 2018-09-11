@@ -65,46 +65,48 @@
                 method: 'GET',
                 url: cros + $$('#post-input').val() + '/?embed=1',
                 success: (data, textStatus, xhr) => {
-                    let matches = String(data).match(/(https:\/\/)(cdn)(\w)(.telesco\.pe)([^"']*)/g)
-                    if (matches.length <= 0) {
-                        $$('#post-status').text('解析完成: 未能找到任何匹配的资源')
-                    } else {
-                        $$('#post-status').text('解析完成: 找到了 ' + matches.length + ' 个资源')
-                        matches.forEach((res, index) => {
-                            console.log(res)
-                            if (res.indexOf('.mp4') !== -1) {
-                                $$('#post-result').append(
-                                    '<li class="mdui-list-item mdui-ripple" id="video-' +
-                                    index +
-                                    '"><input class="mdui-textfield-input" onclick="copy(this)" id="input-video-' +
-                                    index + '" type="text" value=' + res +
-                                    ' readonly></input></li>')
-                                new mdui.Tooltip('#video-' + index, {
-                                    content: '<video height="100%" width="100%" controls autoplay><source src="'+ res +'" type="video/mp4"></video>',
-                                    position: 'top'
-                                });
-                            } else {
-                                $$('#post-result').append(
-                                    '<li class="mdui-list-item mdui-ripple" id="img-' +
-                                    index +
-                                    '"><input class="mdui-textfield-input" onclick="copy(this)" id="input-img-' +
-                                    index + '" type="text" value=' + res +
-                                    ' readonly></input></li>')
-                                new mdui.Tooltip('#img-' + index, {
-                                    content: '<img src="' + res +
-                                        '" height="100" width="100">',
-                                    position: 'top'
-                                });
-                            }
-                        })
+                    data = String(data)
+                    if (data.indexOf('<div class="tgme_widget_message_error" dir="auto">') !== -1) {
+                            $$('#post-status').text('解析失败: 频道/群组或消息未找到，或是被屏蔽')
+                        } else {
+                        let matches = data.match(/(https:\/\/)(cdn)(\w)(.telesco\.pe)([^"']*)/g)
+                        if (matches.length <= 0) {
+                            $$('#post-status').text('解析完成: 未能找到任何匹配的资源')
+                        } else {
+                            $$('#post-status').text('解析完成: 找到了 ' + matches.length + ' 个资源')
+                            matches.forEach((res, index) => {
+                                console.log(res)
+                                if (res.indexOf('.mp4') !== -1) {
+                                    $$('#post-result').append(
+                                        '<li class="mdui-list-item mdui-ripple" id="video-' +
+                                        index +
+                                        '"><input class="mdui-textfield-input" onclick="copy(this)" id="input-video-' +
+                                        index + '" type="text" value=' + res +
+                                        ' readonly></input></li>')
+                                    new mdui.Tooltip('#video-' + index, {
+                                        content: '<video height="100%" width="100%" controls autoplay><source src="' +
+                                            res + '" type="video/mp4"></video>',
+                                        position: 'top'
+                                    });
+                                } else {
+                                    $$('#post-result').append(
+                                        '<li class="mdui-list-item mdui-ripple" id="img-' +
+                                        index +
+                                        '"><input class="mdui-textfield-input" onclick="copy(this)" id="input-img-' +
+                                        index + '" type="text" value=' + res +
+                                        ' readonly></input></li>')
+                                    new mdui.Tooltip('#img-' + index, {
+                                        content: '<img src="' + res +
+                                            '" height="100" width="100">',
+                                        position: 'top'
+                                    });
+                                }
+                            })
+                        }
                     }
                 },
                 error: (xhr, textStatus) => {
-                    if (xhr.status === 404) {
-                        $$('#post-status').text('解析不成功: 频道或消息不存在')
-                    } else {
-                        $$('#post-status').text('未知错误，请重试')
-                    }
+                    $$('#post-status').text('未知错误，请重试')
                 }
             });
         }, 500);

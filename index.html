@@ -3,15 +3,15 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Use Telegram Channel as Image Hosting | 用 Telegram Channel 做图床"/>
+    <meta name="description" content="Use Telegram Channel as Image Hosting | 用 Telegram Channel 做图床" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdui/0.4.1/css/mdui.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mdui/0.4.1/js/mdui.min.js"></script>
-    <title>Telegram Image Hosting | Telegram 图床</title>
+    <title>Telegram Image/Video Hosting | Telegram 图床/视频</title>
 </head>
 
 <body class="mdui-theme-primary-indigo mdui-theme-accent-pink">
     <div class="mdui-toolbar mdui-color-theme">
-        <span class="mdui-typo-title">Telegram Image Hosting</span>
+        <span class="mdui-typo-title">Telegram Image/Video Hosting</span>
         <div class="mdui-toolbar-spacer"></div>
         <a href="https://github.com/NeverBehave/Telegram-Image-Hosting" class="mdui-btn mdui-btn-icon" mdui-tooltip="{content: 'Github'}"><i
                 class="mdui-icon material-icons">code</i></a>
@@ -22,7 +22,7 @@
                 <div class="mdui-card">
                     <!-- 卡片的标题和副标题 -->
                     <div class="mdui-card-primary">
-                        <div class="mdui-card-primary-title">将频道公开链接粘贴在下方，解析图片地址</div>
+                        <div class="mdui-card-primary-title">将频道/公开群组内消息的公开链接粘贴在下方，解析资源地址</div>
                         <div class="mdui-card-primary-subtitle">例子：<a href="https://t.me/ButNothingHappened/2614">https://t.me/ButNothingHappened/2614</a>
                         </div>
                     </div>
@@ -65,30 +65,37 @@
                 method: 'GET',
                 url: cros + $$('#post-input').val() + '/?embed=1',
                 success: (data, textStatus, xhr) => {
-                    let text = String(data)
-                    let regex = /(?:background-image:url\(')(.*)('\)")/g
-                    var matches = [];
-                    var match;
-                    while (match = regex.exec(text)) {
-                        matches.push(match[1]);
-                    }
+                    let matches = String(data).match(/(https:\/\/)(cdn)(\w)(.telesco\.pe)([^"']*)/g)
                     if (matches.length <= 0) {
-                        $$('#post-status').text('解析完成: 消息内无法解析出图片链接')
+                        $$('#post-status').text('解析完成: 未能找到任何匹配的资源')
                     } else {
-                        $$('#post-status').text('解析完成: 找到了 ' + matches.length + ' 张图片')
-                        matches.forEach((pic, index) => {
-                            console.log(pic)
-                            $$('#post-result').append(
-                                '<li class="mdui-list-item mdui-ripple" id="img-' +
-                                index +
-                                '"><input class="mdui-textfield-input" onclick="copy(this)" id="input-img-' +
-                                index + '" type="text" value=' + pic +
-                                ' readonly></input></li>')
-                            new mdui.Tooltip('#img-' + index, {
-                                content: '<img src="' + pic +
-                                    '" height="100" width="100">',
-                                position: 'top'
-                            });
+                        $$('#post-status').text('解析完成: 找到了 ' + matches.length + ' 个资源')
+                        matches.forEach((res, index) => {
+                            console.log(res)
+                            if (res.indexOf('.mp4') !== -1) {
+                                $$('#post-result').append(
+                                    '<li class="mdui-list-item mdui-ripple" id="video-' +
+                                    index +
+                                    '"><input class="mdui-textfield-input" onclick="copy(this)" id="input-video-' +
+                                    index + '" type="text" value=' + res +
+                                    ' readonly></input></li>')
+                                new mdui.Tooltip('#video-' + index, {
+                                    content: '<video height="100%" width="100%" controls autoplay><source src="'+ res +'" type="video/mp4"></video>',
+                                    position: 'top'
+                                });
+                            } else {
+                                $$('#post-result').append(
+                                    '<li class="mdui-list-item mdui-ripple" id="img-' +
+                                    index +
+                                    '"><input class="mdui-textfield-input" onclick="copy(this)" id="input-img-' +
+                                    index + '" type="text" value=' + res +
+                                    ' readonly></input></li>')
+                                new mdui.Tooltip('#img-' + index, {
+                                    content: '<img src="' + res +
+                                        '" height="100" width="100">',
+                                    position: 'top'
+                                });
+                            }
                         })
                     }
                 },

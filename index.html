@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/mdui/0.4.1/css/mdui.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/mdui/0.4.1/js/mdui.min.js"></script>
+    <title>Telegram Image Hosting</title>
+</head>
+<body class="mdui-theme-primary-indigo mdui-theme-accent-pink">
+<div class="mdui-toolbar mdui-color-theme">
+    <span class="mdui-typo-title">Telegram Image Hosting</span>
+    <div class="mdui-toolbar-spacer"></div>
+    <a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">code</i></a>
+</div>
+<div class="mdui-container">
+    <div class="mdui-row" style="padding-top: 30px">
+        <div class="mdui-col-12">
+            <div class="mdui-card">
+                <!-- 卡片的标题和副标题 -->
+                <div class="mdui-card-primary">
+                    <div class="mdui-card-primary-title">将频道公开链接粘贴在下方，解析图片地址</div>
+                    <div class="mdui-card-primary-subtitle">例子：<a href="https://t.me/ButNothingHappened/2614">https://t.me/ButNothingHappened/2614</a>
+                    </div>
+                </div>
+
+                <!-- 卡片的内容 -->
+                <div class="mdui-card-content">
+                    <div class="mdui-textfield">
+                        <input class="mdui-textfield-input" id="post-input" type="text"
+                               placeholder="https://t.me/ChannelID/PostID"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mdui-row" style="padding-top: 20px">
+        <div class="mdui-col-12">
+            <div class="mdui-card">
+                <!-- 卡片的标题和副标题 -->
+                <div class="mdui-card-primary">
+                    <div class="mdui-card-primary-title">解析结果</div>
+                </div>
+
+                <!-- 卡片的内容 -->
+                <div class="mdui-card-content">
+                    <p id="post-status">等待输入...</p>
+                    <ul class="mdui-list" id="post-result">
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var $$ = mdui.JQ
+    let cros = 'https://cors-anywhere.herokuapp.com/'
+
+    let req = $$.throttle(() => {
+        console.log('这个函数最多 500ms 执行一次');
+        $$.ajax({
+            method: 'GET',
+            url: cros + $$('#post-input').val() + '/?embed=1',
+            success: (data, textStatus, xhr) => {
+                let text = String(data)
+                let regex = /(?:background-image:url\(')(.*)('\)")/g
+                var matches = [];
+                var match;
+                while (match = regex.exec(text)) {
+                    matches.push(match[1]);
+                }
+                if (matches.length <= 0) {
+                    $$('#post-status').text('解析完成: 消息内无法解析出图片链接')
+                } else {
+
+                }
+            },
+            error: (xhr, textStatus) => {
+                if (xhr.status === 404) {
+                    $$('#post-status').text('解析不成功: 频道或消息不存在')
+                } else {
+                    $$('#post-status').text('未知错误，请重试')
+                }
+            }
+        });
+    }, 500);
+
+    $$("#post-input").on('input propertychange', (e) => {
+        if ($$("#post-input").val() !== '') {
+            req()
+        }
+        $$('#post-status').text('正在处理……')
+    })
+</script>
+</body>
+</html>

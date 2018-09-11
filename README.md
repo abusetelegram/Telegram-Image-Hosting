@@ -18,7 +18,7 @@ Telegram 在之前推出了频道消息嵌入到网页的插件，这使得图�
 ### 缺点
 
 - CDN 对于国内不友好（你懂的）
-- 色情内容等频道会被屏蔽（比如： ![https://t.me/maito_channel/3537?embed=1](https://cdn5.telesco.pe/file/tHAwEgdXGNT6ba9l9tRniqhEqIy8OJUWDN48_NQFGOHZyNv4REjJzLQdfnE39Bqs64GcblmLLTRG8IgpyoBqA1jru6W5VlbColwf1n_d6x1O1xga5aORIONIFJLSLrEJbaHDba44tTnXSdevdxsLhZ__DAW8eFNy9gRQa6PMA90jp1wWcGW0PPVn2QLhX4hmskM9r1hVW_l3F33Dvf8sd2w-caAsLedkTcpz7D3ojcN1MxEbhgL3Ir7OvxHWK-u9GQNXylmJO9mRHAJDHtTCWd8r_HT77NV8yCOebOETWvBLPKRfvNEdoEblQ_65a7E8sAXIcMFKAszhgs9TLup8hw.jpg）
+- 色情内容等频道会被屏蔽（比如： ![https://t.me/maito_channel/3537?embed=1](https://cdn5.telesco.pe/file/tHAwEgdXGNT6ba9l9tRniqhEqIy8OJUWDN48_NQFGOHZyNv4REjJzLQdfnE39Bqs64GcblmLLTRG8IgpyoBqA1jru6W5VlbColwf1n_d6x1O1xga5aORIONIFJLSLrEJbaHDba44tTnXSdevdxsLhZ__DAW8eFNy9gRQa6PMA90jp1wWcGW0PPVn2QLhX4hmskM9r1hVW_l3F33Dvf8sd2w-caAsLedkTcpz7D3ojcN1MxEbhgL3Ir7OvxHWK-u9GQNXylmJO9mRHAJDHtTCWd8r_HT77NV8yCOebOETWvBLPKRfvNEdoEblQ_65a7E8sAXIcMFKAszhgs9TLup8hw.jpg) https://t.me/maito_channel/3537?embed=1
 - 对于长图支持不好（会被压缩）
 
 ## 使用

@@ -23,7 +23,7 @@ Telegram 在之前推出了频道消息嵌入到网页的插件，这使得图�
 
 ## 使用
 
-- 在自己的公开频道上面发送需要的图片
+- 在公开频道或群组上面发送需要的图片
 - 复制链接 ![](https://cdn5.telesco.pe/file/hpW7rdsChXsF73vIqaDfFcX_opEWQ-ki3SxIauiuiS6Av-335hVTNdWrg6kVaFZXThEVEaoK3zD6lAccevwa63CFEU5bDIh1Vdzw7IwG3Egd95NYxw0dwz7Mq1YZiDJT9f2xXCUffvYs75akUws4yhx0VThRgqI9MEddiPizrlI7-zZybMdLiVGbQjHFGMjfz_tFBk1cZbo8NbIuvmJ1xVbAv_7po-oglbMXNIYQQXuZB0Bqsrh9ppHYEz7f9Pd78NfKFiMhyrpsKqdVOuNpfwt6mx73gMivb2h2aIYjulA0gFVFAf4-g_Nfl36_wTsTfVIGcoVZZ3hJG19WxeaWSg.jpg)
 - 在 https://telegram-image-hosting.never.pet （国内用户建议自带梯子）粘贴
 - 获得链接
@@ -32,6 +32,10 @@ Telegram 在之前推出了频道消息嵌入到网页的插件，这使得图�
 
 `embed?=1` 参数访问时会带上所有图片和视频资源的链接
 
-## TODO
+## 其他相关内容
 
-- python 脚本
+- [python 脚本](telegram-image-hosting.py)
+
+## P.S.
+
+- 目前测试删除消息后图片依然会存在一段时间。[测试链接，如果404了就是没了，与 11/09/2018 13:47 UTC-4 删除](https://cdn5.telesco.pe/file/EdZ_YtmT9X-Pt4ASXTeip4drCR9XFn92Tc8f50gAq0gUb-dPZ8tFPMhcKg8cdrBJXm-LwYV24nfFsUfoFqqZZjviHHyDgwp5ebzrGVqhYAT8prY8Z7JZagLygAyxf7ZjQjYGoBS5rO9FXHUYaYj0Xo1e4WYWxlf6kaC-cshzGnCMbKYzZDiDpJmH7sPZq6g9Yj6G47AjwZIzuAv8MZKpnmbY8HGRKooPCl5Csur6VXh41Lv1eJWy1vpy_-1lLhXgFkUCWNVlKQ7wN2Td3ViFzP6oFuTzVo8Jf1yTGyBHRXRBmVzZ-W1IjnkfDAHUDHJPGJUABYm_gJmozZRgxLM5BQ.jpg)

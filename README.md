@@ -1,6 +1,8 @@
 # Telegram-Image-Hosting
 
-使用 Telegram 做图床
+使用 Telegram 做图床  
+**好的，我栽了，链接会变。消息删除后48小时消失，难受**   
+~~那还可以做临时图片分享把hhh~~  
 
 ## 说明
 
@@ -18,7 +20,7 @@ Telegram 在之前推出了频道消息嵌入到网页的插件，这使得图�
 ### 缺点
 
 - CDN 对于国内不友好（你懂的）
-- 色情内容等频道会被屏蔽（比如： ![https://t.me/maito_channel/3537?embed=1](https://cdn5.telesco.pe/file/tHAwEgdXGNT6ba9l9tRniqhEqIy8OJUWDN48_NQFGOHZyNv4REjJzLQdfnE39Bqs64GcblmLLTRG8IgpyoBqA1jru6W5VlbColwf1n_d6x1O1xga5aORIONIFJLSLrEJbaHDba44tTnXSdevdxsLhZ__DAW8eFNy9gRQa6PMA90jp1wWcGW0PPVn2QLhX4hmskM9r1hVW_l3F33Dvf8sd2w-caAsLedkTcpz7D3ojcN1MxEbhgL3Ir7OvxHWK-u9GQNXylmJO9mRHAJDHtTCWd8r_HT77NV8yCOebOETWvBLPKRfvNEdoEblQ_65a7E8sAXIcMFKAszhgs9TLup8hw.jpg) https://t.me/maito_channel/3537?embed=1
+- 色情内容等频道会被屏蔽（比如： ![https://t.me/maito_channel/3537?embed=1](https://cdn5.telesco.pe/file/dwXPSro2OD_VBgkbjb7p4XQyg9nHlwEezNOCAvLeCWuBTi3Fq6g2mogpOjmI9TsyZOfM1C3U973R2CkPGLzLMKmTDtHHBS5k5iXMtej1Xfb7rb9VDZ_TDNyVQ5AGCId8stifyR8REAX98lodfIUcl9u5MFWthGTWgDH6LmOLhLEZ8pJCI1b-XCkgeh0nCWmDWVj5ZnWlh2GTihvP-7OcODdGO9p4WuL-VwaodxaXJF-sDlJpBV0Z7cBzq_zHEfCmsWweJdiMaeILMB5IbZqT5rls2rTNiYEojZcl6R_3IrkL03U6F9MXcrw0Q7R3NLOjGB8wYnlaDbjS3RpdnQLpnw.jpg) https://t.me/maito_channel/3537?embed=1
 - 对于长图支持不好（会被压缩）
 
 ## 使用

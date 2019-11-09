@@ -27,7 +27,7 @@ Telegram 在之前推出了频道消息嵌入到网页的插件，这使得图�
 
 - 在公开频道或群组上面发送需要的图片
 - 复制链接 ![](https://cdn5.telesco.pe/file/hpW7rdsChXsF73vIqaDfFcX_opEWQ-ki3SxIauiuiS6Av-335hVTNdWrg6kVaFZXThEVEaoK3zD6lAccevwa63CFEU5bDIh1Vdzw7IwG3Egd95NYxw0dwz7Mq1YZiDJT9f2xXCUffvYs75akUws4yhx0VThRgqI9MEddiPizrlI7-zZybMdLiVGbQjHFGMjfz_tFBk1cZbo8NbIuvmJ1xVbAv_7po-oglbMXNIYQQXuZB0Bqsrh9ppHYEz7f9Pd78NfKFiMhyrpsKqdVOuNpfwt6mx73gMivb2h2aIYjulA0gFVFAf4-g_Nfl36_wTsTfVIGcoVZZ3hJG19WxeaWSg.jpg)
-- 在 https://telegram-image-hosting.never.pet （国内用户建议自带梯子）粘贴
+- 在网页上（国内用户建议自带梯子）粘贴
 - 获得链接
 
 ## 原理
